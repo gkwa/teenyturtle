@@ -1,0 +1,116 @@
+#+TITLE: DynamoDB Single Table Design Example
+#+AUTHOR:
+#+DATE:
+
+* Overview
+
+Claude.ai wrote this based off this article:
+
+https://urielbitton.substack.com/p/from-zero-to-hero-with-amazon-dynamodb
+
+I expect it will help me follow allong.
+
+* Features Implemented
+
+- *Single-table design* - All data in one table with different entity types
+- *Primary key structure* - Partition key (pk) and sort key (sk) pattern
+- *Global Secondary Indexes* - For efficient querying by different attributes
+- *TTL* - Time-to-live for automatically expiring items
+- *Point-in-Time Recovery* - For backup and recovery capabilities
+- *DynamoDB Streams* - With Lambda integration for event-driven architecture
+- *CloudWatch Alarms* - For monitoring throttled requests
+- *Global Table Replication* - For multi-region availability
+
+* Data Model Examples
+
+The =seed_data.tf= file contains examples of:
+
+1. Course data
+2. Student data with TTL expiration
+3. Instructor data
+4. Assignment data with date prefixed sort keys
+5. Student submissions
+6. User profile data
+7. Order data with date prefixed sort keys
+8. Transaction data
+9. Session data with TTL
+
+* Lambda Function
+
+The Lambda function in =lambda_function/index.js= demonstrates:
+
+1. Processing DynamoDB Stream events
+2. Updating aggregate counters when new items are added
+3. Maintaining derived data (like grade averages)
+
+* Prerequisites
+
+- AWS CLI configured with appropriate credentials
+- Terraform installed
+- Node.js (for Lambda function development)
+
+* Usage
+
+1. Run the setup command:
+   #+begin_src bash
+   just setup
+   #+end_src
+
+2. To remove all resources:
+   #+begin_src bash
+   just teardown
+   #+end_src
+
+* Key Query Examples
+
+These are examples of how to query the data modeled in this project:
+
+** Get all students in a course
+#+begin_src javascript
+const params = {
+  TableName: "university",
+  KeyConditionExpression: "pk = :courseId AND begins_with(sk, :studentPrefix)",
+  ExpressionAttributeValues: {
+    ":courseId": "course#101",
+    ":studentPrefix": "student#"
+  }
+};
+#+end_src
+
+** Get a user's orders (sorted by date)
+#+begin_src javascript
+const params = {
+  TableName: "university",
+  KeyConditionExpression: "pk = :userId AND begins_with(sk, :orderPrefix)",
+  ExpressionAttributeValues: {
+    ":userId": "user#201",
+    ":orderPrefix": "2025"
+  }
+};
+#+end_src
+
+** Get a specific student by ID (using GSI)
+#+begin_src javascript
+const params = {
+  TableName: "university",
+  IndexName: "studentID-index",
+  KeyConditionExpression: "studentID = :studentId",
+  ExpressionAttributeValues: {
+    ":studentId": "201"
+  }
+};
+#+end_src
+
+** Query courses by date range (using GSI)
+#+begin_src javascript
+const params = {
+  TableName: "university",
+  IndexName: "entityType-courseDate-index",
+  KeyConditionExpression: "entityType = :entityType AND courseDate BETWEEN :startDate AND :endDate",
+  ExpressionAttributeValues: {
+    ":entityType": "course",
+    ":startDate": "2025-09-01",
+    ":endDate": "2025-12-31"
+  }
+};
+#+end_src

@@ -1,0 +1,9 @@
+{
+  "pk": { "S": "course#101" },
+  "sk": { "S": "2025-09-15T00:00:00#assignment#401" },
+  "entityType": { "S": "assignment" },
+  "assignmentID": { "S": "401" },
+  "title": { "S": "Introduction to Algorithms" },
+  "dueDate": { "S": "2025-09-15T23:59:59" },
+  "description": { "S": "Complete the programming exercises in Chapter 1" }
+}

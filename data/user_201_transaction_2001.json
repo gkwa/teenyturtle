@@ -1,0 +1,10 @@
+{
+  "pk": { "S": "user#201" },
+  "sk": { "S": "2025-04-22T12:05:00#transaction-2001" },
+  "entityType": { "S": "transaction" },
+  "transactionID": { "S": "2001" },
+  "transactionDate": { "S": "2025-04-22T12:05:00" },
+  "amount": { "N": "45.99" },
+  "status": { "S": "completed" },
+  "paymentMethod": { "S": "credit_card" }
+}

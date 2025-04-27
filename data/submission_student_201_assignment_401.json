@@ -1,0 +1,11 @@
+{
+  "pk": { "S": "student#201" },
+  "sk": { "S": "submission#course#101#assignment#401" },
+  "entityType": { "S": "submission" },
+  "studentID": { "S": "201" },
+  "courseID": { "S": "101" },
+  "assignmentID": { "S": "401" },
+  "submissionDate": { "S": "2025-09-14T14:30:00" },
+  "grade": { "N": "92" },
+  "comments": { "S": "Good work!" }
+}

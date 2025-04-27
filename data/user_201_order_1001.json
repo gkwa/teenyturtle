@@ -1,0 +1,19 @@
+{
+  "pk": { "S": "user#201" },
+  "sk": { "S": "2025-04-22T12:00:00#order-1001" },
+  "entityType": { "S": "order" },
+  "orderID": { "S": "1001" },
+  "orderDate": { "S": "2025-04-22T12:00:00" },
+  "amount": { "N": "45.99" },
+  "items": {
+    "L": [
+      {
+        "M": {
+          "productID": { "S": "book-101" },
+          "quantity": { "N": "1" },
+          "price": { "N": "45.99" }
+        }
+      }
+    ]
+  }
+}

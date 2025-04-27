@@ -1,0 +1,10 @@
+{
+  "pk": { "S": "course#101" },
+  "sk": { "S": "student#202" },
+  "entityType": { "S": "student" },
+  "studentID": { "S": "202" },
+  "name": { "S": "Jane Smith" },
+  "email": { "S": "jane.smith@example.com" },
+  "enrollmentDate": { "S": "2025-08-16T00:00:00" },
+  "ttl": { "N": "1746279600" }
+}

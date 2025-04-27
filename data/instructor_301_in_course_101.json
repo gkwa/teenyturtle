@@ -1,0 +1,10 @@
+{
+  "pk": { "S": "course#101" },
+  "sk": { "S": "instructor#301" },
+  "entityType": { "S": "instructor" },
+  "instructorID": { "S": "301" },
+  "name": { "S": "Professor Robert Brown" },
+  "email": { "S": "robert.brown@university.edu" },
+  "department": { "S": "Computer Science" },
+  "office": { "S": "Science Building 405" }
+}

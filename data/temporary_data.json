@@ -1,0 +1,9 @@
+{
+  "pk": { "S": "session#abc123" },
+  "sk": { "S": "user#201" },
+  "entityType": { "S": "session" },
+  "userID": { "S": "201" },
+  "loginTime": { "S": "2025-04-22T09:00:00" },
+  "expiryTime": { "S": "2025-04-22T17:00:00" },
+  "ttl": { "N": "1745374800" }
+}
