@@ -1,0 +1,12 @@
+{
+  "pk": { "S": "user#201" },
+  "sk": { "S": "profile" },
+  "entityType": { "S": "profile" },
+  "studentID": { "S": "201" },
+  "name": { "S": "John Doe" },
+  "email": { "S": "john.doe@example.com" },
+  "address": { "S": "123 College Ave, University Town" },
+  "phoneNumber": { "S": "555-123-4567" },
+  "major": { "S": "Computer Science" },
+  "enrollmentYear": { "N": "2025" }
+}

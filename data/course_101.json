@@ -1,0 +1,10 @@
+{
+  "pk": { "S": "course#101" },
+  "sk": { "S": "metadata" },
+  "entityType": { "S": "course" },
+  "courseID": { "S": "101" },
+  "name": { "S": "Introduction to Computer Science" },
+  "courseDate": { "S": "2025-09-01T09:00:00" },
+  "department": { "S": "Computer Science" },
+  "credits": { "N": "3" }
+}
